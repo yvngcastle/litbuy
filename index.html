@@ -1,221 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Litbuy Finds — Designer Goods for Less</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #f7f5f0;
-  --ink: #111;
-  --card-bg: #fff;
-  --muted: #888;
-  --border: #e0ddd8;
-  --accent: #d4392e;
-  --shadow-hover: 0 8px 32px rgba(0,0,0,0.14);
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body { background:var(--bg); color:var(--ink); font-family:'Barlow',sans-serif; min-height:100vh; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@yvngcastle</title>
 
-/* REGISTER BANNER */
-.reg-banner { background:var(--accent); color:#fff; padding:9px 28px; display:flex; align-items:center; gap:10px; font-size:13px; font-weight:500; }
-.reg-banner a { color:#fff; font-weight:700; text-decoration:underline; white-space:nowrap; }
-.reg-banner span { opacity:.85; }
+  <!-- Monograph Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css">
 
-/* HEADER */
-header { background:var(--ink); color:#fff; padding:0 28px; display:flex; align-items:center; gap:20px; height:58px; position:sticky; top:0; z-index:200; border-bottom:3px solid var(--accent); }
-.logo { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:3px; color:#fff; white-space:nowrap; }
-.logo em { color:var(--accent); font-style:normal; }
-.search-wrap { flex:1; max-width:440px; position:relative; }
-.search-wrap input { width:100%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:4px; padding:8px 14px 8px 36px; color:#fff; font-family:'Barlow',sans-serif; font-size:14px; outline:none; transition:.2s; }
-.search-wrap input:focus { background:rgba(255,255,255,.15); border-color:var(--accent); }
-.search-wrap input::placeholder { color:rgba(255,255,255,.4); }
-.s-icon { position:absolute; left:11px; top:50%; transform:translateY(-50%); color:rgba(255,255,255,.4); font-size:14px; pointer-events:none; }
-.hdr-count { margin-left:auto; font-family:'Barlow Condensed',sans-serif; font-size:12px; color:rgba(255,255,255,.45); letter-spacing:1.5px; text-transform:uppercase; white-space:nowrap; }
-.hdr-count strong { color:var(--accent); }
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-/* CAT TABS */
-.cat-bar { background:#fff; border-bottom:1px solid var(--border); display:flex; align-items:center; padding:0 28px; overflow-x:auto; scrollbar-width:none; position:sticky; top:58px; z-index:150; }
-.cat-bar::-webkit-scrollbar { display:none; }
-.cat-tab { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); padding:13px 16px 11px; cursor:pointer; border:none; background:none; white-space:nowrap; border-bottom:3px solid transparent; transition:.15s; }
-.cat-tab:hover { color:var(--ink); }
-.cat-tab.active { color:var(--accent); border-bottom-color:var(--accent); }
+    body{
+      background:#000;
+      color:#fff;
+      font-family:Arial,Helvetica,sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
 
-/* TOOLBAR */
-.toolbar { padding:12px 28px 8px; display:flex; align-items:center; gap:7px; flex-wrap:wrap; }
-.sort-label { font-family:'Barlow Condensed',sans-serif; font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-right:4px; }
-.sort-btn { font-family:'Barlow',sans-serif; font-size:12px; font-weight:500; padding:5px 11px; border:1px solid var(--border); border-radius:3px; background:#fff; color:var(--muted); cursor:pointer; transition:.15s; }
-.sort-btn:hover { border-color:var(--ink); color:var(--ink); }
-.sort-btn.active { background:var(--ink); color:#fff; border-color:var(--ink); }
-.res-count { margin-left:auto; font-family:'Barlow Condensed',sans-serif; font-size:13px; color:var(--muted); letter-spacing:1px; }
+    .card{
+      text-align:center;
+      width:320px;
+    }
 
-/* GRID */
-.grid-wrap { padding:8px 28px 40px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:14px; }
+    .pfp{
+      width:110px;
+      height:110px;
+      border:1px solid #222;
+      border-radius:50%;
+      margin:0 auto 22px;
+      overflow:hidden;
+      background:#111;
+    }
 
-/* CARD */
-.card { background:var(--card-bg); border:1px solid var(--border); border-radius:6px; overflow:hidden; display:flex; flex-direction:column; transition:box-shadow .2s,transform .2s; text-decoration:none; color:inherit; }
-.card:hover { box-shadow:var(--shadow-hover); transform:translateY(-3px); }
-.card-img-wrap { aspect-ratio:1/1; background:#f3f1ec; overflow:hidden; }
-.card-img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s; }
-.card:hover .card-img { transform:scale(1.05); }
-.card-no-img { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:38px; color:#ccc; background:linear-gradient(135deg,#f0ede8,#e5e0d8); }
-.card-body { padding:11px 13px 13px; display:flex; flex-direction:column; flex:1; gap:3px; }
-.card-cat { font-family:'Barlow Condensed',sans-serif; font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); }
-.card-name { font-family:'Barlow Condensed',sans-serif; font-size:16px; font-weight:700; color:var(--ink); line-height:1.2; }
-.card-clr { font-size:11px; color:#bbb; margin-top:1px; }
-.card-foot { display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:9px; border-top:1px solid var(--border); margin-top:9px; }
-.card-price { font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--accent); letter-spacing:1px; }
-.buy-btn { font-family:'Barlow Condensed',sans-serif; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; background:var(--ink); color:#fff; border:none; padding:6px 13px; border-radius:3px; cursor:pointer; transition:background .15s; display:inline-block; text-decoration:none; }
-.buy-btn:hover { background:var(--accent); }
+    .pfp img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
 
-/* PAGINATION */
-.pagination { display:flex; align-items:center; justify-content:center; gap:5px; padding:20px 0 48px; flex-wrap:wrap; }
-.pg-btn { font-family:'Barlow Condensed',sans-serif; font-size:13px; font-weight:600; letter-spacing:1px; padding:7px 13px; border:1px solid var(--border); border-radius:3px; background:#fff; color:var(--muted); cursor:pointer; transition:.15s; }
-.pg-btn:hover:not(:disabled) { border-color:var(--ink); color:var(--ink); }
-.pg-btn.active { background:var(--accent); border-color:var(--accent); color:#fff; }
-.pg-btn:disabled { opacity:.3; cursor:not-allowed; }
-.pg-dots { color:var(--muted); padding:0 3px; font-size:14px; }
+    h1{
+      font-size:26px;
+      font-weight:400;
+      margin-bottom:26px;
+      letter-spacing:.5px;
+    }
 
-/* EMPTY */
-.empty { text-align:center; padding:80px 20px; }
-.empty-icon { font-size:48px; margin-bottom:14px; }
-.empty h2 { font-family:'Bebas Neue',sans-serif; font-size:30px; letter-spacing:2px; color:var(--muted); margin-bottom:6px; }
-.empty p { color:var(--muted); font-size:13px; }
+    a{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      color:#fff;
+      text-decoration:none;
+      padding:12px 0;
+      opacity:.65;
+      transition:.2s;
+      font-size:15px;
+    }
 
-@media(max-width:640px) {
-  header { padding:0 14px; gap:10px; }
-  .hdr-count { display:none; }
-  .grid-wrap { padding:8px 12px 40px; }
-  .toolbar { padding:10px 12px; }
-  .cat-bar { padding:0 12px; }
-  .grid { grid-template-columns:repeat(auto-fill,minmax(158px,1fr)); gap:10px; }
-  .reg-banner { padding:8px 14px; font-size:12px; }
-}
-</style>
+    a:hover{
+      opacity:1;
+    }
+
+    i{
+      font-size:20px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="reg-banner">
-  <span>🔥 Get 40%+ off shipping on every order —</span>
-  <a href="https://litbuy.com/register?inviteCode=2G2B14KYO" target="_blank" rel="noopener">Register free at Litbuy →</a>
+<div class="card">
+
+  <!-- Replace pfp.jpg with your profile picture -->
+  <div class="pfp">
+    <img src="pfp.jpg" alt="Profile Picture">
+  </div>
+
+  <h1>@yvngcastle</h1>
+
+  <a href="https://x.com/yvngcastle" target="_blank">
+    <i class="ph ph-x-logo"></i>
+    @yvngcastle
+  </a>
+
+  <a href="https://instagram.com/yvngcastle" target="_blank">
+    <i class="ph ph-instagram-logo"></i>
+    @yvngcastle
+  </a>
+
 </div>
 
-<header>
-  <div class="logo">LIT<em>BUY</em> FINDS</div>
-  <div class="search-wrap">
-    <span class="s-icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Search products, brands…" oninput="onSearch()">
-  </div>
-  <div class="hdr-count" id="hdrCount"><strong>2689</strong> PRODUCTS</div>
-</header>
-
-<nav class="cat-bar" id="catBar"></nav>
-
-<div class="toolbar">
-  <span class="sort-label">Sort</span>
-  <button class="sort-btn active" id="s-default" onclick="setSort('default')">Featured</button>
-  <button class="sort-btn" id="s-price-asc" onclick="setSort('price-asc')">Price ↑</button>
-  <button class="sort-btn" id="s-price-desc" onclick="setSort('price-desc')">Price ↓</button>
-  <button class="sort-btn" id="s-name" onclick="setSort('name')">A–Z</button>
-  <span class="res-count" id="resCount"></span>
-</div>
-
-<div class="grid-wrap">
-  <div class="grid" id="grid"></div>
-  <div class="empty" id="emptyState" style="display:none">
-    <div class="empty-icon">🛍️</div>
-    <h2>No Results</h2>
-    <p>Try a different search or category</p>
-  </div>
-  <div class="pagination" id="pagination"></div>
-</div>
-
-<script src="products_data.js"></script>
-<script>
-const CATS = ['All','Hoodies & Sweaters','Shoes','T-Shirts & Shorts','Accessories','Bags','Pants','Electronics','Suits'];
-const PER = 60;
-const S = { cat:'All', q:'', sort:'default', page:1 };
-
-// Build cat tabs
-const catBar = document.getElementById('catBar');
-CATS.forEach(c => {
-  const b = document.createElement('button');
-  b.className = 'cat-tab' + (c==='All'?' active':'');
-  b.textContent = c;
-  b.onclick = () => { S.cat=c; S.page=1; render(); window.scrollTo({top:0,behavior:'smooth'}); };
-  catBar.appendChild(b);
-});
-
-function filtered() {
-  let L = window.PRODUCTS||[];
-  if (S.cat !== 'All') L = L.filter(p=>p.category===S.cat);
-  if (S.q) { const q=S.q.toLowerCase(); L=L.filter(p=>p.name.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)); }
-  if (S.sort==='price-asc') L=[...L].sort((a,b)=>parseFloat(a.price.replace('$',''))-parseFloat(b.price.replace('$','')));
-  else if (S.sort==='price-desc') L=[...L].sort((a,b)=>parseFloat(b.price.replace('$',''))-parseFloat(a.price.replace('$','')));
-  else if (S.sort==='name') L=[...L].sort((a,b)=>a.name.localeCompare(b.name));
-  return L;
-}
-
-function render() {
-  const F = filtered();
-  const pages = Math.max(1,Math.ceil(F.length/PER));
-  if (S.page>pages) S.page=1;
-  const items = F.slice((S.page-1)*PER, S.page*PER);
-
-  document.getElementById('hdrCount').innerHTML = `<strong>${F.length.toLocaleString()}</strong> PRODUCTS`;
-  document.getElementById('resCount').textContent = `${F.length.toLocaleString()} results`;
-  document.querySelectorAll('.cat-tab').forEach(b=>b.classList.toggle('active',b.textContent===S.cat));
-
-  const grid = document.getElementById('grid');
-  const empty = document.getElementById('emptyState');
-
-  if (!items.length) { grid.innerHTML=''; empty.style.display=''; }
-  else {
-    empty.style.display='none';
-    grid.innerHTML = items.map(p=>`
-<a class="card" href="${xss(p.url)}" target="_blank" rel="noopener">
-  <div class="card-img-wrap">
-    ${p.img
-      ? `<img class="card-img" src="${xss(p.img)}" alt="${xss(p.name)}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=\\'card-no-img\\'>🛍️</div>'">`
-      : `<div class="card-no-img">🛍️</div>`}
-  </div>
-  <div class="card-body">
-    <span class="card-cat">${xss(p.category)}</span>
-    <div class="card-name">${xss(p.name)}</div>
-    ${p.colorways?`<div class="card-clr">${xss(p.colorways)}</div>`:''}
-    <div class="card-foot">
-      <span class="card-price">${xss(p.price)}</span>
-      <span class="buy-btn">Buy Now</span>
-    </div>
-  </div>
-</a>`).join('');
-  }
-  renderPg(pages);
-}
-
-function xss(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-
-function renderPg(total) {
-  const pg = document.getElementById('pagination');
-  if (total<=1){ pg.innerHTML=''; return; }
-  let h = `<button class="pg-btn" onclick="goPg(${S.page-1})" ${S.page===1?'disabled':''}>← Prev</button>`;
-  const R=[];
-  if(total<=7){ for(let i=1;i<=total;i++)R.push(i); }
-  else if(S.page<=4){ for(let i=1;i<=5;i++)R.push(i); R.push('…',total); }
-  else if(S.page>=total-3){ R.push(1,'…'); for(let i=total-4;i<=total;i++)R.push(i); }
-  else { R.push(1,'…',S.page-1,S.page,S.page+1,'…',total); }
-  R.forEach(p=>{ if(p==='…') h+=`<span class="pg-dots">…</span>`; else h+=`<button class="pg-btn${p===S.page?' active':''}" onclick="goPg(${p})">${p}</button>`; });
-  h+=`<button class="pg-btn" onclick="goPg(${S.page+1})" ${S.page===total?'disabled':''}>Next →</button>`;
-  pg.innerHTML=h;
-}
-
-function goPg(p){ S.page=p; render(); window.scrollTo({top:document.querySelector('.toolbar').offsetTop-65,behavior:'smooth'}); }
-function onSearch(){ S.q=document.getElementById('searchInput').value; S.page=1; render(); }
-function setSort(s){ S.sort=s; S.page=1; document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active')); document.getElementById('s-'+s).classList.add('active'); render(); }
-
-render();
-</script>
 </body>
 </html>
